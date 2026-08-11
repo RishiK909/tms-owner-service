@@ -1,0 +1,45 @@
+package com.owner_service.dto;
+
+public class ApiResponseDTO<T> {
+
+    private String message;
+    private boolean status;
+    private T data;
+
+    public ApiResponseDTO() {
+    }
+
+    public ApiResponseDTO(String message, boolean status, T data) {
+        this.message = message;
+        this.status = status;
+        this.data = data;
+    }
+
+    public ApiResponseDTO(String s, boolean b) {
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+}
+
