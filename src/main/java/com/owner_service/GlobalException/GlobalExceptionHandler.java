@@ -2,6 +2,7 @@ package com.owner_service.GlobalException;
 
 
 import com.owner_service.Exception.DuplicateResourceException;
+import com.owner_service.Exception.ResourceNotFoundException;
 import com.owner_service.dto.ApiResponseDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,5 +49,13 @@ public class GlobalExceptionHandler {
         logger.error("Something went wrong: ", ex);
         return ResponseEntity.internalServerError()
                 .body(new ApiResponseDTO<>("Something went wrong", false));
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ApiResponseDTO<Void>> handleResourceNotFound(ResourceNotFoundException ex) {
+        logger.error("Resource not found: ", ex);
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(new ApiResponseDTO<>(ex.getMessage(), false));
     }
 }
