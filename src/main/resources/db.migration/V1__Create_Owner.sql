@@ -11,9 +11,9 @@ CREATE TABLE owners (
         postal_code     VARCHAR(10),
 
         created_at      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        created_by      BIGINT,
+        created_by      UUID,
         updated_at      TIMESTAMP,
-        updated_by      BIGINT,
+        updated_by      UUID,
         status          VARCHAR(20) NOT NULL DEFAULT 'Active',
         deleted_at      TIMESTAMP,
         version         BIGINT NOT NULL DEFAULT 0,
